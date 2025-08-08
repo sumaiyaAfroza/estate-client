@@ -56,6 +56,21 @@ PropertyHub is a modern real estate platform that connects property buyers with 
 - **Image Upload** - Local and cloud image storage
 - **Environment Variables** - Secure configuration management
 
+- ### Client Dependencies
+```json
+{
+  "react": "^18.2.0",
+  "@tanstack/react-query": "^4.29.0",
+  "react-router-dom": "^6.8.0",
+  "react-hook-form": "^7.43.0",
+  "@stripe/stripe-js": "^1.52.0",
+  "recharts": "^2.5.0",
+  "react-hot-toast": "^2.4.0",
+  "tailwindcss": "^3.2.0",
+  "axios": "^1.3.0"
+}
+```
+
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
