@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import faq from '../assets/FAQ Blue.json'
+import Lottie from "lottie-react";
+
 
 const faqs = [
   {
-    question: "Ki bhabe ami amar property list korte pari?",
+    question: "How can I list my property?",
     answer:
-      "Apni amader platform e sign up kore 'List Your Property' option e giye property details submit kore list korte parben.",
+      "Sign up on our platform and use the 'List Your Property' option to submit your property details for listing.",
   },
   {
-    question: "Property rent ar sale er jonno ki ki option ache?",
+    question: "What options are available for renting or selling?",
     answer:
-      "Apni property ke rent, sale, ba rent to own option e post korte parben, jeita apnar proyojon onujayi.",
+      "You can post your property for rent, sale, or a rent-to-own option, based on your requirements.",
   },
   {
-    question: "Property dekhte jete ki age appointment nite hoy?",
+    question: "Do I need to schedule an appointment to view a property?",
     answer:
-      "Hain, appointment nite hobe. Apni property page e giye owner ba agent er shathe contact kore appointment nite parben.",
+      "Yes, you'll need to schedule an appointment. Contact the owner or agent from the property page to set it up.",
   },
   {
-    question: "Payment process kemon?",
+    question: "How does the payment process work?",
     answer:
-      "Payment amra safe online gateway diye niye thaki. Apni multiple payment method diye payment korte parben.",
+      "Payments are handled securely via our online gateway. Multiple payment methods are available for your convenience.",
   },
 ];
 
@@ -33,7 +36,8 @@ const FAQ = () => {
   };
 
   return (
-    <div
+    <div className="flex justify-center items-center pl-20">
+        <div
       style={{
         maxWidth: 600,
         margin: "30px auto",
@@ -70,7 +74,7 @@ const FAQ = () => {
             }}
           >
             <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              {/* Optionally, place any category icon here */}
+              {/* Optionally, place category icon here */}
               {faq.question}
             </span>
             {openIndex === index ? (
@@ -107,7 +111,14 @@ const FAQ = () => {
         </div>
       ))}
     </div>
+
+    <div className=" h-[700px] w-[700px] ">
+        <Lottie animationData={faq} loop={true} />;
+    </div>
+
+    </div>
   );
 };
 
 export default FAQ;
+ 
