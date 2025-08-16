@@ -29,6 +29,7 @@ import ManageReviews from "../pages/dashboard/admin/ManageReviews";
 import ManageProperties from "../pages/dashboard/admin/ManageProperties";
 import AdvertiseProperty from "../pages/dashboard/admin/AdvertiseProperty";
 import About from "../component/About";
+import Contact from "../component/Contact";
 
 
 export const router = createBrowserRouter([
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
             {
                 path: '/about',
                 Component: About
+            },
+            {
+               path: '/contact',
+               Component: Contact
             },
             {
                 path:'forbidden',
