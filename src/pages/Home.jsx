@@ -5,6 +5,7 @@ import LatestReview from "../component/LatestReview";
 import AdvertiseSection from "../component/AdvertiseSection";
 import Extra from "../component/Extra";
 import Extra2 from "../component/Extra2";
+import About from "../component/About";
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
       </Helmet>
       <Banner></Banner>
       <AdvertiseSection></AdvertiseSection>
+      {/* <About></About> */}
       <LatestReview></LatestReview>
       <Extra></Extra>
       <Extra2></Extra2>

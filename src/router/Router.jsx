@@ -28,6 +28,7 @@ import AdminProfile from "../pages/dashboard/admin/AdminProfile";
 import ManageReviews from "../pages/dashboard/admin/ManageReviews";
 import ManageProperties from "../pages/dashboard/admin/ManageProperties";
 import AdvertiseProperty from "../pages/dashboard/admin/AdvertiseProperty";
+import About from "../component/About";
 
 
 export const router = createBrowserRouter([
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
             {
                 path:'makeOffer/:id',
                element: <PrivateRoute><MakeOffer></MakeOffer></PrivateRoute>
+            },
+            {
+                path: '/about',
+                Component: About
             },
             {
                 path:'forbidden',
