@@ -17,6 +17,7 @@ import {
   Instagram,
   Linkedin
 } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -119,6 +120,9 @@ const Contact = () => {
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <Helmet>
+      <title>Contact</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

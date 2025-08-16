@@ -6,6 +6,7 @@ import AdvertiseSection from "../component/AdvertiseSection";
 import Extra from "../component/Extra";
 import Extra2 from "../component/Extra2";
 import Extranew from "../component/Extranew";
+import FAQ from "../component/FAQ";
 
 
 
@@ -22,6 +23,8 @@ const Home = () => {
       <Extra></Extra>
       <Extra2></Extra2>
       <Extranew></Extranew>
+      <FAQ></FAQ>
+
       
       
     </div>
