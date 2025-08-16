@@ -179,7 +179,7 @@ const Navbar = () => {
               to="/allProperties"
               className={({ isActive }) => (isActive ? activeClass : inactiveClass)}
             >
-              All properties
+              All Properties
             </NavLink>
           </li>
           <li>

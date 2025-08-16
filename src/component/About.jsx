@@ -18,6 +18,7 @@ import {
   DollarSign
 } from 'lucide-react';
 import { Link } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
   const features = [
@@ -85,6 +86,9 @@ const About = () => {
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <Helmet>
+      <title>About</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
