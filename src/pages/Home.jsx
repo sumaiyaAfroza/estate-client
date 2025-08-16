@@ -5,7 +5,7 @@ import LatestReview from "../component/LatestReview";
 import AdvertiseSection from "../component/AdvertiseSection";
 import Extra from "../component/Extra";
 import Extra2 from "../component/Extra2";
-import About from "../component/About";
+import Extranew from "../component/Extranew";
 
 
 
@@ -21,6 +21,7 @@ const Home = () => {
       <LatestReview></LatestReview>
       <Extra></Extra>
       <Extra2></Extra2>
+      <Extranew></Extranew>
       
       
     </div>
