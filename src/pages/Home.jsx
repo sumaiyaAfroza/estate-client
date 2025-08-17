@@ -7,6 +7,7 @@ import Extra from "../component/Extra";
 import Extra2 from "../component/Extra2";
 import Extranew from "../component/Extranew";
 import FAQ from "../component/FAQ";
+import SalesPromotion from "../component/SalesPromotion";
 
 
 
@@ -22,7 +23,8 @@ const Home = () => {
       <LatestReview></LatestReview>
       <Extra></Extra>
       <Extra2></Extra2>
-      <Extranew></Extranew>
+      {/* <Extranew></Extranew> */}
+      <SalesPromotion></SalesPromotion>
       <FAQ></FAQ>
 
       

@@ -222,7 +222,7 @@ const Navbar = () => {
               {/* Dropdown with improved positioning and padding */}
               {dropdownOpen && (
                 <div className="absolute top-full left-0 pt-2 pb-2">
-                  <ul className="bg-white dark:bg-gray-800 border border-gray-200/20 dark:border-gray-700/20 rounded-lg shadow-xl w-56 py-2 backdrop-blur-xl bg-white/95 dark:bg-gray-800/95">
+                  <ul className="bg-white dark:bg-gray-800 border border-gray-200/20 dark:border-gray-700/20 rounded-lg shadow-xl w-56 py-2 backdrop-blur-xl">
                     {dashboardMenuItems.map(({ path, label }) => (
                       <li key={path}>
                         <NavLink
@@ -301,7 +301,7 @@ const Navbar = () => {
                 {/* Profile Dropdown */}
                 {profileDropdownOpen && (
                   <div className="absolute top-full right-0 pt-2 pb-2">
-                    <div className="bg-white dark:bg-gray-800 border border-gray-200/20 dark:border-gray-700/20 rounded-lg shadow-xl w-40 py-2 backdrop-blur-xl bg-white/95 dark:bg-gray-800/95">
+                    <div className=" border border-gray-200/20 dark:border-gray-700/20 rounded-lg shadow-xl w-40 py-2 backdrop-blur-xl bg-white/95 dark:bg-gray-800/95">
                       <div className="px-4 py-2 border-b border-gray-200/20 dark:border-gray-700/20">
                         <p className="text-sm font-medium text-gray-700 dark:text-gray-200 truncate">
                           {user.displayName}
