@@ -86,8 +86,8 @@ class SalesPromotion extends React.Component {
     ];
 
     // Base classes for light and dark mode to be toggled via isDarkMode
-    const darkClasses = "dark";
-    const lightClasses = "light";
+    // const darkClasses = "dark";
+    // const lightClasses = "light";
 
     return (
       <motion.div 
@@ -221,7 +221,7 @@ class SalesPromotion extends React.Component {
                       {promo.discount}
                     </span>
                     <motion.h3 
-                      className={`text-lg font-bold ${isDarkMode ? "text-gray-100" : "text-gray-800"}`}
+                      className={`text-lg font-bold mb-2 ${isDarkMode ? "text-gray-100" : "text-gray-800"}`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}
@@ -237,7 +237,7 @@ class SalesPromotion extends React.Component {
                   >
                     {promo.description}
                   </motion.p>
-                  <motion.button 
+                  {/* <motion.button 
                     className="text-orange-600 font-medium hover:text-orange-700 flex items-center gap-1"
                     whileHover={{ x: 5 }}
                     initial={{ opacity: 0 }}
@@ -245,7 +245,7 @@ class SalesPromotion extends React.Component {
                     transition={{ duration: 0.3 }}
                   >
                     Learn More <ArrowRight className="w-4 h-4" />
-                  </motion.button>
+                  </motion.button> */}
                 </motion.div>
               );
             })}
@@ -265,12 +265,12 @@ class SalesPromotion extends React.Component {
             }}
           >
             <motion.h2 
-              className={`text-2xl font-bold mb-6 flex items-center gap-2 ${isDarkMode ? "text-gray-100" : "text-gray-800"}`}
+              className={`text-3xl font-bold mb-6 flex items-center gap-2 ${isDarkMode ? "text-gray-100" : "dark:text-white text-gray-800"}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <Percent className="w-6 h-6 text-orange-600" />
+              <Percent className="w-6 h-6  text-orange-600" />
               Special Offers This Month
             </motion.h2>
             
@@ -287,10 +287,10 @@ class SalesPromotion extends React.Component {
               }}
             >
               {[
-                { title: "Early Bird Discount", desc: "Book within next 7 days and get additional 5% off", value: "Save up to ৳5 Lakh", color: isDarkMode ? "bg-green-900 text-green-300" : "bg-green-100 text-green-800", border: "border-green-500" },
+                { title: "Early Bird Discount", desc: "Book within next 7 days and get additional 5% off", value: "Save up to ৳5 Lakh", color: isDarkMode ? "bg-green-900 text-green-300 dark:text-white" : "bg-green-100 text-green-800", border: "border-green-500" },
                 { title: "Referral Bonus", desc: "Refer a friend and both get ৳50,000 cashback", value: "৳50,000 Each", color: isDarkMode ? "bg-blue-900 text-blue-300" : "bg-blue-100 text-blue-800", border: "border-blue-500" },
-                { title: "Flexible Payment", desc: "Pay in easy installments with 0% interest", value: "0% Interest", color: isDarkMode ? "bg-purple-900 text-purple-300" : "bg-purple-100 text-purple-800", border: "border-purple-500" },
-                { title: "Free Legal Support", desc: "Complete legal documentation handled by us", value: "Worth ৳1 Lakh", color: isDarkMode ? "bg-orange-900 text-orange-300" : "bg-orange-100 text-orange-800", border: "border-orange-500" }
+                { title: "Flexible Payment", desc: "Pay in easy installments with 0% interest", value: "0% Interest", color: isDarkMode ? "bg-green-100 text-green-300" : "bg-green-100 text-green-800", border: "border-purple-500" },
+                { title: "Free Legal Support", desc: "Complete legal documentation handled by us", value: "Worth ৳1 Lakh", color: isDarkMode ? "bg-orange-900 text-orange-300" : "bg-blue-100 text-blue-800", border: "border-orange-500" }
               ].map((offer, index) => (
                 <motion.div 
                   key={index}
@@ -301,7 +301,7 @@ class SalesPromotion extends React.Component {
                   }}
                 >
                   <motion.h3 
-                    className={`text-lg font-bold mb-2 ${isDarkMode ? "text-gray-100" : "text-gray-800"}`}
+                    className="text-lg font-bold mb-2 text-gray-800 dark:text-white"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3 }}
@@ -309,7 +309,7 @@ class SalesPromotion extends React.Component {
                     {offer.title}
                   </motion.h3>
                   <motion.p 
-                    className={`mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                    className={`mb-2 text-gray-600 dark:text-white`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
