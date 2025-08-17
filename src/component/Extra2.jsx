@@ -35,16 +35,16 @@ const steps = [
 const Extra2 = () => {
   return (
     <section className="bg-blue-200 dark:bg-[#1E2939] py-20">
-      <div className="max-w-5xl mx-auto px-4 text-center">
+      <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-14">
           Let’s Make It Happen
         </h2>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-4">
           {steps.map((step) => (
             <div
               key={step.id}
-              className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md dark:shadow-none hover:shadow-lg dark:hover:shadow-md transition duration-300 flex items-start gap-5 border border-gray-200 dark:border-gray-700"
+              className="bg-white w-60 dark:bg-gray-900 rounded-xl p-6 shadow-md dark:shadow-none hover:shadow-lg dark:hover:shadow-md transition duration-300 flex flex-col items-start gap-5 border border-gray-200 dark:border-gray-700"
             >
               <div className="flex-shrink-0">
                 <div 
