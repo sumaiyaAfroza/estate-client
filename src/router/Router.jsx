@@ -5,7 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Error from "../component/Error";
 import PrivateRoute from "../routers/PrivateRoute";
-import Dashboard from "../component/Dashboard";
+import DashboardOverview from "../pages/dashboard/DashboardOverview";
 import DashboardLayout from "../Layout/DashboardLayout";
 import AllProperties from "../component/allProperties/AllProperties";
 import AddProperty from "../pages/dashboard/agents/AddProperty";
@@ -81,15 +81,18 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
-
-            // agent site
+            // Dashboard overview as default
             {
                 index: true,
-                element: <Dashboard />
+                element: <DashboardOverview />
             },
             {
-             path:'addProperty',
-            Component: AddProperty
+                path: 'overview',
+                element: <DashboardOverview />
+            },
+            {
+                path:'addProperty',
+                Component: AddProperty
             },
             {
              path: 'myAddedProperties',

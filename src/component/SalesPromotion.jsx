@@ -221,7 +221,7 @@ class SalesPromotion extends React.Component {
                       {promo.discount}
                     </span>
                     <motion.h3 
-                      className={`text-lg font-bold mb-2 ${isDarkMode ? "text-gray-100" : "text-gray-800"}`}
+                      className={`text-lg font-bold mb-2 ${isDarkMode ? "text-gray-100" : "dark:text-white text-gray-800"}`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}
@@ -230,7 +230,7 @@ class SalesPromotion extends React.Component {
                     </motion.h3>
                   </div>
                   <motion.p 
-                    className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                    className={`mb-4 ${isDarkMode ? "text-gray-300" : " dark:text-white text-gray-600"}`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
