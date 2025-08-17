@@ -91,7 +91,7 @@ class SalesPromotion extends React.Component {
 
     return (
       <motion.div 
-        className={`py-12 transition-colors duration-300 bg-gray-100 dark:bg-gray-900`}
+        className={`py-12 transition-colors duration-300 bg-blue-200 dark:bg-gray-900`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -252,7 +252,7 @@ class SalesPromotion extends React.Component {
           </motion.div>
 
           {/* Special Offers */}
-          <h1 className=' text-4xl font-semibold mt-20 mb-8 text text underline'>Special Offers </h1>
+          <h1 className=' text-4xl font-semibold mt-20 mb-8  bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent text-center'>Special Offers </h1>
           <motion.div 
             className={`rounded-lg p-6 shadow-lg bg-white dark:bg-gray-800`}
             initial="hidden"

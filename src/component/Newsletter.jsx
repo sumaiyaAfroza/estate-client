@@ -157,7 +157,7 @@ class Newsletter extends React.Component {
 
     if (isSubscribed) {
       return (
-  <div className="py-12 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+  <div className="py-12 bg-blue-200 dark:from-gray-900 dark:to-gray-800">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
               <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -187,7 +187,7 @@ class Newsletter extends React.Component {
     }
 
     return (
-  <div className="py-12 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+  <div className=" bg-blue-200 dark:bg-black">
   <div className="max-w-6xl mx-auto px-4">
           
           {/* Header Section */}
@@ -318,7 +318,7 @@ class Newsletter extends React.Component {
                   className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-colors flex items-center justify-center gap-2 ${
                     isLoading 
                       ? 'bg-gray-400 dark:bg-gray-700 cursor-not-allowed' 
-                      : 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800'
+                      : 'bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white'
                   }`}
                 >
                   {isLoading ? (

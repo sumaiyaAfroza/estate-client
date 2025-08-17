@@ -30,6 +30,7 @@ import ManageProperties from "../pages/dashboard/admin/ManageProperties";
 import AdvertiseProperty from "../pages/dashboard/admin/AdvertiseProperty";
 import About from "../component/About";
 import Contact from "../component/Contact";
+import AdvertiseSection from "../component/AdvertiseSection";
 
 
 export const router = createBrowserRouter([
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                path: '/propertyDetails/:id',
                element: <PrivateRoute> <PropertyDetails></PropertyDetails></PrivateRoute>
+            },
+            {
+               path:'/advertiseSection',
+               Component: AdvertiseSection
             },
             {
                 path:'/login',

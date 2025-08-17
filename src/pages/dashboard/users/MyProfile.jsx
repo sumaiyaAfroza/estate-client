@@ -38,12 +38,12 @@ const MyProfile = () => {
     }
   }, [user, axiosSecure]);
 
-  const handleEditToggle = () => {
-    if (isEditing) {
-      setEditData(profile); // Reset to original data
-    }
-    setIsEditing(!isEditing);
-  };
+  // const handleEditToggle = () => {
+  //   if (isEditing) {
+  //     setEditData(profile); // Reset to original data
+  //   }
+  //   setIsEditing(!isEditing);
+  // };
 
   const handleInputChange = (field, value) => {
     setEditData(prev => ({
@@ -85,7 +85,7 @@ const MyProfile = () => {
     phone ,
     address,
     joinDate,
-    bio,
+    // bio,
     company,
     website,
     properties = 0,
@@ -273,7 +273,7 @@ const MyProfile = () => {
                 <p className="text-gray-700">{bio || "No bio added yet"}</p>
               )}
             </div> */}
-            
+
           </div>
         </div>
 

@@ -29,7 +29,7 @@ const steps = [
   },
   {
     id: 4,
-    icon: <DoorOpen size={34} />,
+    icon: <DoorOpen  size={34} />,
     title: "Move In",
     desc: "Seal the deal securely and get the keys to your brand-new space.",
     bg: "from-orange-500 to-yellow-400",
@@ -38,7 +38,7 @@ const steps = [
 
 const Extra = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-[#f0f4ff] to-[#e4ecff] dark:from-gray-900 dark:to-gray-800">
+    <section className="py-16 ">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-12">
           How It Works

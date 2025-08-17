@@ -33,7 +33,8 @@ const AllProperties = () => {
   if (isLoading) return <div className="text-center mt-10">Loading...</div>;
 
   return (
-    <div className="p-4">
+    <div className="px-10">
+      <h1 className="text-5xl font-bold text-center mt-20 mb-20   bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent"> Find Your Perfect Property</h1>
       {/* 🔍 Search and Sort Controls */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
         <input
@@ -56,7 +57,7 @@ const AllProperties = () => {
       </div>
 
       {/* 📦 Property Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-16 gap-6">
         {filteredProperties.map((property) => (
           <div key={property._id} className="card bg-base-100 shadow-md p-4">
             <img
@@ -84,13 +85,13 @@ const AllProperties = () => {
               💰 {property.price.min} - {property.price.max} ৳
             </p>
 
-            <p className="text-sm mb-4">
-              <span className="font-medium">Status:</span> {property.status}
+            <p className="text-sm mb-4 ">
+              <span className="font-medium text-lg ">Status:</span> <span className=" border-2 rounded-2xl  px-2">{property.status}</span>
             </p>
 
             <Link
               to={`/propertyDetails/${property._id}`}
-              className="btn btn-primary w-full"
+              className="btn text-xl bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white w-full "
             >
               Details
             </Link>

@@ -3,9 +3,9 @@ import Banner from "../component/Banner";
 import { Helmet } from "react-helmet";
 import LatestReview from "../component/LatestReview";
 import AdvertiseSection from "../component/AdvertiseSection";
-import Extra from "../component/Extra";
+
 import Extra2 from "../component/Extra2";
-import Extranew from "../component/Extranew";
+
 import FAQ from "../component/FAQ";
 import SalesPromotion from "../component/SalesPromotion";
 import Newsletter from "../component/Newsletter";
@@ -22,7 +22,7 @@ const Home = () => {
       <Banner></Banner>
       <AdvertiseSection></AdvertiseSection>
       <LatestReview></LatestReview>
-      <Extra></Extra>
+      {/* <Extra></Extra> */}
       <Extra2></Extra2>
       {/* <Extranew></Extranew> */}
       <SalesPromotion></SalesPromotion>
