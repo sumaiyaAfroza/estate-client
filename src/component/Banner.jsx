@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'; // Import Link for routing
 const banners = [
   {
     id: 1,
-    image: 'https://i.postimg.cc/bvZf7YYn/images-2.jpg',
+    image: 'https://i.postimg.cc/hvLYNkgz/1.jpg',
     alt: 'Luxury Apartment',
     title: 'Find Your Dream Home',
     subtitle: 'Explore thousands of verified properties from trusted agents across the country.',
@@ -14,7 +14,7 @@ const banners = [
   },
   {
     id: 2,
-    image: 'https://i.postimg.cc/qqS3Gv7G/images-3.jpg',
+    image: 'https://i.postimg.cc/g2XVJvX4/pexels-binyaminmellish-1396122.jpg',
     alt: 'Modern Living',
     title: 'Live Where You Love',
     subtitle: 'From city apartments to countryside villas, find your perfect match today.',
@@ -31,8 +31,8 @@ const banners = [
 //     buttonLink: '/listings', // Added buttonLink
 //   },
   {
-    id: 4,
-    image: 'https://i.postimg.cc/kXy6jC59/images-4.jpg',
+    id: 3,
+    image: 'https://i.postimg.cc/RFVq3Bp9/pexels-nextvoyage-1481105.jpg',
     alt: 'Verified Listings',
     title: 'Only Verified Properties',
     subtitle: 'We ensure every listing is real, secure, and verified by our team.',
@@ -40,6 +40,7 @@ const banners = [
     buttonLink: '/advertiseSection', // Added buttonLink
   },
 ];
+
 
 export default function Banner() {
     const [current, setCurrent] = useState(0);
@@ -65,9 +66,10 @@ export default function Banner() {
             {banners.map((banner, index) => (
                 <div
                     key={banner.id}
-                    className={`absolute top-0 left-0 w-full h-full transition-all duration-1000 ease-in-out ${
-                        index === current ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-105 z-0'
-                    }`}
+                    className={`absolute top-0 left-0 w-full h-full transition-all duration-1000 ease-in-out
+                         ${ index === current ? ' scale-100 z-10' : ' scale-105 z-0' }
+                       
+                   `}
                 >
                     <img
                         src={banner.image}
@@ -94,7 +96,7 @@ export default function Banner() {
                             <div className="text-center">
                                 <Link
                                     to={banner.buttonLink}
-                                    className="px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full text-lg font-semibold shadow-lg"
+                                    className="px-10 py-4 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white rounded-full text-lg font-semibold shadow-lg"
                                 >
                                     {banner.buttonText}
                                 </Link>
