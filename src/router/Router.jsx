@@ -166,3 +166,15 @@ export const router = createBrowserRouter([
         element: <Error></Error>
     }  
 ])
+
+
+
+
+
+// title er text color
+// bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent
+
+
+
+// btn er bg soho text
+// bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white

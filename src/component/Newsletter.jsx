@@ -197,7 +197,7 @@ class Newsletter extends React.Component {
                 <Mail className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent  mb-4">
               Stay Updated with Property News
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -210,7 +210,7 @@ class Newsletter extends React.Component {
             
             {/* Benefits Section */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-6">
                 What You'll Get:
               </h3>
               <div className="space-y-6">
@@ -255,7 +255,7 @@ class Newsletter extends React.Component {
 
             {/* Subscription Form */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-6">
                 Subscribe Now
               </h3>
               

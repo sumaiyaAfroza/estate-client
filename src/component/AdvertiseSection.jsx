@@ -19,9 +19,9 @@ const AdvertiseSection = () => {
   if (advertisedProperties.length === 0) return null;
 
   return (
-    <div className="p-4 mt-10 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-        🔥 Featured Advertisements
+    <div className="p-4 mt-20 max-w-7xl mx-auto">
+      <h2 className="text-4xl  font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent  mb-6 text-center">
+       Featured Advertisements
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {advertisedProperties.slice(0, 4).map((property) => (

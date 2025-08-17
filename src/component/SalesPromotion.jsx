@@ -252,6 +252,7 @@ class SalesPromotion extends React.Component {
           </motion.div>
 
           {/* Special Offers */}
+          <h1 className=' text-4xl font-semibold mt-20 mb-8 text text underline'>Special Offers </h1>
           <motion.div 
             className={`rounded-lg p-6 shadow-lg bg-white dark:bg-gray-800`}
             initial="hidden"
