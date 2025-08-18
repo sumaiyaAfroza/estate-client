@@ -46,7 +46,7 @@ const FAQ = () => {
       </div>
 
       
-      <div className="flex justify-center mx-48 items-center">
+      <div className="flex justify-center mx-40 items-center">
         {/* FAQ */}
         <div
           className="

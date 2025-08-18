@@ -30,7 +30,7 @@ const LatestReview = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 ">
+    <div className="mx-26 px-4 ">
       <section className="my-20">
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
           What Our Users Are Saying

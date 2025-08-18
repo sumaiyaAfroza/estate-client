@@ -93,7 +93,7 @@ const AllProperties = () => {
               to={`/propertyDetails/${property._id}`}
               className="btn text-xl bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white w-full "
             >
-              Details
+             view Details
             </Link>
           </div>
         ))}
