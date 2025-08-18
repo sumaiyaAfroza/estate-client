@@ -214,7 +214,7 @@ const ManageUsers = () => {
                         <button
                           onClick={() => handleRoleChange(user._id, "admin")}
                           disabled={user.role === "admin"}
-                          className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded hover:bg-purple-200 disabled:opacity-50"
+                          className="text-xs bg-green-200 text-green-700 px-2 py-1 rounded hover:bg-purple-200 disabled:opacity-50"
                         >
                           Make Admin
                         </button>

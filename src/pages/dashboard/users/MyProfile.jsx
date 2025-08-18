@@ -132,7 +132,7 @@ const MyProfile = () => {
                 className="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
               />
               {isEditing && (
-                <button className="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                <button className="absolute bottom-2 right-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white p-2 rounded-full">
                   <Camera className="w-4 h-4" />
                 </button>
               )}
@@ -170,7 +170,7 @@ const MyProfile = () => {
                   {!isEditing ? (
                     <button
                       onClick={handleEditToggle}
-                      className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
                     >
                       <Edit3 className="w-4 h-4" />
                       Edit Profile

@@ -71,7 +71,7 @@ const AllProperties = () => {
               <span className="  font-medium">Location:</span> {property.location}
             </p>
 
-            <div className="flex flex-col items-center gap-2 mb-1">
+            <div className="flex flex-col  gap-2 mb-1">
               <img
                 src={property.agentImage}
                 alt="agent"
@@ -85,8 +85,8 @@ const AllProperties = () => {
               💰 {property.price.min} - {property.price.max} ৳
             </p>
 
-            <p className="text-sm mb-4 ">
-              <span className="font-medium text-lg ">Status:</span> <span className=" border-2 rounded-2xl  px-2">{property.status}</span>
+            <p className="text-sm mb-4 gap-2 ">
+              <span className="font-medium text-lg ">Status:</span> <span className=" border-2 rounded-2xl bg-green-100 dark:bg-[#1E2939]  px-2">{property.status}</span>
             </p>
 
             <Link

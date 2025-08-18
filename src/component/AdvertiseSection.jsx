@@ -61,7 +61,7 @@ const AdvertiseSection = () => {
 
               <Link
                 to={`/propertyDetails/${property._id}`}
-                className="mt-3 inline-flex items-center gap-1 text-sm px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white transition"
+                className="mt-3 inline-flex items-center gap-1 text-sm px-4 py-1.5 rounded-sm bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white transition"
               >
                 <Eye className="w-4 h-4" /> View Details
               </Link>

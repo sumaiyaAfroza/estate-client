@@ -291,7 +291,7 @@ const RequestedProperties = () => {
                               <button
                                 onClick={() => acceptOffer.mutate({ offerId: offer._id, propertyId: offer.propertyId })}
                                 disabled={acceptOffer.isLoading}
-                                className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 disabled:from-gray-400 disabled:to-gray-500 text-black rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+                                className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white disabled:to-gray-500 text-black rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                               >
                                 <Check className="w-4 h-4" />
                                 Accept

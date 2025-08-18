@@ -48,7 +48,7 @@ const WishList = () => {
             </p>
             {/* <p>💰 Price Range: {item.price}</p> */}
             <div className="flex gap-4 mt-3">
-              <Link to={`/makeOffer/${item.propertyId}`} className="btn btn-primary btn-sm">
+              <Link to={`/makeOffer/${item.propertyId}`} className="btn bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white btn-sm">
                 Make an Offer
               </Link>
               <button onClick={() => handleRemove(item._id)} className="btn btn-error btn-sm">

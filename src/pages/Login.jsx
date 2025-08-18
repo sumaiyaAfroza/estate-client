@@ -1,9 +1,10 @@
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
 const Login = () => {
   const {
@@ -23,6 +24,11 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         console.log("Login Successful:", result.user);
+        toast.success("Login Successful! Welcome back!", {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "colored",
+        });
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -49,10 +55,20 @@ const Login = () => {
         await axiosInstance.post("/users", userInfo);
 
         console.log("Google Login Successful:", result.user);
+        toast.success("Google Login Successful! Welcome back!", {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "colored",
+        });
         navigate("/");
       })
       .catch((error) => {
         console.error("Google Login Error:", error.message);
+        toast.error(`Google Login failed: ${error.message}`, {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "colored",
+        });
       });
   };
 
@@ -238,6 +254,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 // ===============================================================
 

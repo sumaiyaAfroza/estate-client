@@ -231,9 +231,9 @@ const About = () => {
               <button className="bg-white text-emerald-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg">
                 <Link to='/allProperties'>Explore Properties</Link>
               </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-emerald-600 transition-colors duration-300">
+              {/* <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-emerald-600 transition-colors duration-300">
                 Contact Agent
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

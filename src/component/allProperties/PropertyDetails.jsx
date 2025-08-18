@@ -132,10 +132,10 @@ const PropertyDetails = () => {
           </div>
         </div>
 
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <h3 className="text-xl font-semibold mb-2">Description</h3>
           <p className="text-gray-700 dark:text-gray-300">{property.description}</p>
-        </div>
+        </div> */}
 
         <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
           <h3 className="text-xl font-semibold mb-3">Agent Information</h3>
@@ -157,7 +157,7 @@ const PropertyDetails = () => {
         <button
           onClick={() => wishlistMutation.mutate()}
           disabled={wishlistMutation.isLoading}
-          className="btn btn-primary gap-2 dark:bg-blue-600 dark:border-blue-600 dark:hover:bg-blue-700"
+          className="btn bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white gap-2 dark:bg-blue-600 dark:border-blue-600 dark:hover:bg-blue-700"
         >
           {wishlistMutation.isLoading ? (
             <span className="loading loading-spinner"></span>
@@ -181,7 +181,7 @@ const PropertyDetails = () => {
 
         <button
           onClick={() => setShowModal(true)}
-          className="btn btn-secondary gap-2 dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
+          className="btn bg-blue-800 text-white gap-2 dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600"
         >
           <svg
             className="w-5 h-5"

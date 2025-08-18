@@ -112,14 +112,14 @@ const MyAddedProperties = () => {
                   {property.status !== 'rejected' && (
                     <button
                       onClick={() => handleUpdate(property._id)}
-                      className="flex-1 inline-flex items-center justify-center gap-1 bg-indigo-500 hover:bg-indigo-700 text-white py-1.5 rounded-md text-sm font-medium transition"
+                      className="flex-1 inline-flex items-center justify-center gap-1 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white py-1.5 rounded-md text-sm font-medium transition"
                     >
                       <Pencil size={16} color="white" /> Update
                     </button>
                   )}
                   <button
                     onClick={() => handleDelete(property._id)}
-                    className="flex-1 inline-flex items-center justify-center gap-1 bg-amber-700 hover:bg-rose-700 text-white py-1.5 rounded-md text-sm font-medium transition"
+                    className="flex-1 inline-flex items-center justify-center gap-1 border-red-900 bg-red-400 hover:bg-rose-700 text-white py-1.5 rounded-md text-sm font-medium transition"
                   >
                     <Trash2 size={16} color="white" /> Delete
                   </button>
