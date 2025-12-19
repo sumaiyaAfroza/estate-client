@@ -4,6 +4,7 @@ import React from 'react';
 
 const axiosInstance = axios.create({
     baseURL: `https://a12-estate-server.vercel.app`
+    // baseURL: `http://localhost:3000`
 })
 
 

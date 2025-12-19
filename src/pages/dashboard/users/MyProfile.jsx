@@ -31,6 +31,9 @@ const MyProfile = () => {
       axiosSecure
         .get(`/profile?email=${user.email}`)
         .then((res) => {
+          
+          console.log(res.data);
+
           setProfile(res.data);
           setEditData(res.data);
         })
@@ -38,31 +41,34 @@ const MyProfile = () => {
     }
   }, [user, axiosSecure]);
 
-  // const handleEditToggle = () => {
-  //   if (isEditing) {
-  //     setEditData(profile); // Reset to original data
-  //   }
-  //   setIsEditing(!isEditing);
-  // };
+  const handleEditToggle = () => {
+    if (isEditing) {
+      setEditData(profile); // Reset to original data
+    }
+    setIsEditing(!isEditing);
+  };
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field, value) =>
+    //  ( console.log(field, value))
+    {
     setEditData(prev => ({
       ...prev,
       [field]: value
     }));
   };
+  
 
-  // const handleSave = async () => {
-  //   setIsLoading(true);
-  //   try {
-  //     await axiosSecure.put(`/profile?email=${user.email}`, editData);
-  //     setProfile(editData);
-  //     setIsEditing(false);
-  //   } catch (error) {
-  //     console.error("Error updating profile:", error);
-  //   }
-  //   setIsLoading(false);
-  // };
+  const handleSave = async () => {
+    setIsLoading(true);
+    try {
+      await axiosSecure.put(`/profile?email=${user.email}`, editData);
+      setProfile(editData);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+    setIsLoading(false);
+  };
 
 
 
@@ -166,10 +172,10 @@ const MyProfile = () => {
                 </div>
                 
                 {/* Edit Button */}
-                {/* <div className="flex gap-2 mt-4 md:mt-0">
+                <div className="flex gap-2 mt-4 md:mt-0">
                   {!isEditing ? (
                     <button
-                      onClick={handleEditToggle}
+                      // onClick={handleEditToggle}
                       className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
                     >
                       <Edit3 className="w-4 h-4" />
@@ -178,7 +184,7 @@ const MyProfile = () => {
                   ) : (
                     <div className="flex gap-2">
                       <button
-                        onClick={handleSave}
+                        // onClick={handleSave}
                         disabled={isLoading}
                         className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
                       >
@@ -194,7 +200,7 @@ const MyProfile = () => {
                       </button>
                     </div>
                   )}
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
