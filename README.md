@@ -117,8 +117,8 @@
 
 #### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/dreamnest-realestate.git
-cd dreamnest-realestate
+git clone https://github.com/sumaiyaAfroza/estate-client.git
+cd real-estate-platform
 ```
 
 #### Client Setup
@@ -256,7 +256,7 @@ npm start
 ### Homepage
 ![Homepage Banner](screenshot-homepage.png)
 *Modern and engaging landing page with featured properties*
-
+<!-- 
 ### Property Details
 ![Property Details](screenshot-details.png)
 *Comprehensive property information with review section*
@@ -267,15 +267,14 @@ npm start
 
 ### Admin Panel
 ![Admin Panel](screenshot-admin.png)
-*Powerful admin control center*
+*Powerful admin control center* -->
 
 
 ## 👨‍💻 Developer
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
+**sumaiya Afroza**
+- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/sumaiya-afroza25/)
+- Portfolio: [yourportfolio.com](https://portfolio-umber-five-47.vercel.app/)
 ---
 
 **⭐ If you like this project, please give it a star on GitHub! ⭐**
