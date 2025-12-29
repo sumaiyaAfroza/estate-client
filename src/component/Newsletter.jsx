@@ -191,7 +191,7 @@ class Newsletter extends React.Component {
 
     if (isSubscribed) {
       return (
-        <div className="py-12 bg-blue-200 dark:bg-[#1E2939]">
+        <div className="py-12 dark:bg-[#1E2939]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
               <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -221,7 +221,7 @@ class Newsletter extends React.Component {
     }
 
     return (
-      <div className="bg-blue-200 dark:bg-[#1E2939]">
+      <div className=" dark:bg-[#1E2939]">
         <div className="max-w-6xl mx-auto px-4">
           {/* Header Section */}
           <div className="text-center mb-12">

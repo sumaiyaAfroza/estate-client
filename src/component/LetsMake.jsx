@@ -32,15 +32,15 @@ const steps = [
   },
 ];
 
-const Extra2 = () => {
+const LetsMake = () => {
   return (
-    <section className="bg-blue-200 dark:bg-[#1E2939] py-20">
-      <div className="max-w-6xl mx-auto px-4 text-center">
+    <section className=" dark:bg-[#1E2939] py-10">
+      <div className=" px-4 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-14">
           Let’s Make It Happen
         </h2>
 
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="flex justify-between items-center">
           {steps.map((step) => (
             <div
               key={step.id}
@@ -73,4 +73,4 @@ const Extra2 = () => {
   );
 };
 
-export default Extra2;
+export default LetsMake;

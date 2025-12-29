@@ -19,7 +19,7 @@ const AdvertiseSection = () => {
   if (advertisedProperties.length === 0) return null;
 
   return (
-    <div className="p-4 mt-20 mx-26">
+    <div className="p-4 mt-20">
       <h2 className="text-4xl font-bold bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent mb-6 text-center">
         Featured Advertisements
       </h2>
@@ -74,6 +74,9 @@ const AdvertiseSection = () => {
 };
 
 export default AdvertiseSection;
+
+
+
 
 // import { useQuery } from "@tanstack/react-query";
 // import { Link } from "react-router-dom";

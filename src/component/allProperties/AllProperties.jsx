@@ -45,6 +45,30 @@ const AllProperties = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
+
+
+{/* Integrated Search Bar (Heavy Item) */}
+        {/* <div className="w-full max-w-3xl mb-12 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <div className="glass-morphism p-3 rounded-3xl flex flex-col md:flex-row gap-3 items-center shadow-2xl">
+            <div className="flex-1 flex items-center gap-3 px-4 w-full border-r border-white/10">
+              <Search className="text-blue-400" size={20} />
+              <input 
+                type="text" 
+                placeholder="Search by city, neighborhood, or ZIP..." 
+                className="bg-transparent border-none outline-none text-white w-full placeholder:text-slate-400 py-3"
+              />
+            </div>
+
+            <button className="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 group shadow-lg shadow-blue-600/20">
+              Search Now
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div> */}
+
+
+
+
         <select
           className="select select-bordered w-full md:w-1/4"
           value={sortOrder}

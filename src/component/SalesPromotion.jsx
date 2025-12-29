@@ -87,12 +87,12 @@ class SalesPromotion extends React.Component {
 
     return (
       <motion.div
-        className={`py-12 transition-colors duration-300 bg-blue-200 dark:bg-[#1E2939]`}
+        className={`py-12 transition-colors duration-300 dark:bg-[#1E2939]`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="px-4">
           {/* Main Promotion Banner */}
           <motion.div
             className={`rounded-xl p-8 mb-8 relative overflow-hidden ${

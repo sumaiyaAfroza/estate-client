@@ -9,7 +9,7 @@ import Footer from '../component/Footer'
 const MainLayout = () => {
   const {theme} = use(ThemeContext)
   return (
-    <div className='bg-blue-200 dark:bg-gray-800 w-full min-h-screen' data-theme={theme || 'light'}>
+    <div className='bg-white dark:bg-gray-800 w-full min-h-screen' data-theme={theme || 'light'}>
        
        <Navbar></Navbar>
        <Outlet></Outlet>

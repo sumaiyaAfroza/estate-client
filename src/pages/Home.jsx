@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import LatestReview from "../component/LatestReview";
 import AdvertiseSection from "../component/AdvertiseSection";
 
-import Extra2 from "../component/Extra2";
+import Extra2 from "../component/LetsMake";
 
 import FAQ from "../component/FAQ";
 import SalesPromotion from "../component/SalesPromotion";

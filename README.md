@@ -1,7 +1,7 @@
-# 🏘️ DreamNest - Premium Real Estate Platform
+# 🏘️ Real Estate Platform
 
-## 🌐 Live Site URL
-[https://dreamnest-realestate.web.app](https://estate-client-ruddy.vercel.app/)
+## 🌐 Live Site  
+(https://estate-client-ruddy.vercel.app/)
 
 ## 📋 Admin Credentials
 - **Username:** admin@gmail.com

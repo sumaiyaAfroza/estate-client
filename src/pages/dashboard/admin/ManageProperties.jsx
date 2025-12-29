@@ -183,8 +183,7 @@ const ManageProperties = () => {
   );
 };
 
-export default ManageProperties;
-
+export default ManageProperties;  
 
 
 // import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";

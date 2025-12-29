@@ -147,7 +147,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/20 dark:border-gray-700/20 sticky top-0 z-50 transition-all duration-500 ${
+   
+      className={`backdrop-blur-xl bg-white  sticky top-0 z-50 transition-all duration-500 ${
         showNavbar ? "translate-y-0 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50" : "-translate-y-full"
       }`}
     >
@@ -222,7 +223,7 @@ const Navbar = () => {
               {/* Dropdown with improved positioning and padding */}
               {dropdownOpen && (
                 <div className="absolute top-full left-0 pt-2 pb-2">
-                  <ul className="bg-white dark:bg-gray-800 border border-gray-200/20 dark:border-gray-700/20 rounded-lg shadow-xl w-56 py-2 backdrop-blur-xl">
+                  <ul className=" dark:bg-gray-800 border border-gray-200/20 dark:border-gray-700/20 rounded-lg shadow-xl w-56 py-2 backdrop-blur-xl">
                     {dashboardMenuItems.map(({ path, label }) => (
                       <li key={path}>
                         <NavLink
