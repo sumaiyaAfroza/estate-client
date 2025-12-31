@@ -26,7 +26,7 @@ const Home = () => {
       <Extra2></Extra2>
       {/* <Extranew></Extranew> */}
       <SalesPromotion></SalesPromotion>
-      {/* <FAQ></FAQ> */}
+      <FAQ></FAQ>
       <Newsletter></Newsletter>
 
       
