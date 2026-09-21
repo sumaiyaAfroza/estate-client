@@ -1,13 +1,26 @@
-import { createBrowserRouter } from "react-router";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Error from "../component/Error";
-import PrivateRoute from "../routers/PrivateRoute";
-import DashboardOverview from "../pages/dashboard/DashboardOverview";
 import DashboardLayout from "../Layout/DashboardLayout";
-import AllProperties from "../component/allProperties/AllProperties";
+import PrivateRoute from "../routers/PrivateRoute";
+import AdminRoute from "../routers/AdminRoute";
+
+// Lazy-loaded public pages (code-split for performance)
+const Home = lazy(() => import("../pages/Home"));
+const Login = lazy(() => import("../pages/Login"));
+const Register = lazy(() => import("../pages/Register"));
+const AllProperties = lazy(() => import("../component/allProperties/AllProperties"));
+const PropertyDetails = lazy(() => import("../component/allProperties/PropertyDetails"));
+const About = lazy(() => import("../component/About"));
+const Contact = lazy(() => import("../component/Contact"));
+const AdvertiseSection = lazy(() => import("../component/AdvertiseSection"));
+const CompareProperties = lazy(() => import("../pages/CompareProperties"));
+const PasswordReset = lazy(() => import("../pages/PasswordReset"));
+const SavedSearches = lazy(() => import("../pages/SavedSearches"));
+const AppointmentBooking = lazy(() => import("../pages/dashboard/users/AppointmentBooking"));
+
+// Non-lazy dashboard pages (loaded once user is authenticated)
+import DashboardOverview from "../pages/dashboard/DashboardOverview";
 import AddProperty from "../pages/dashboard/agents/AddProperty";
 import MyAddedProperties from "../pages/dashboard/agents/MyAddedProperties";
 import UpdateProperty from "../pages/dashboard/agents/UpdateProperty";
@@ -18,184 +31,70 @@ import MyProfile from "../pages/dashboard/users/MyProfile";
 import WishList from "../pages/dashboard/users/WishList";
 import PropertyBought from "../pages/dashboard/users/PropertyBought";
 import MyReviews from "../pages/dashboard/users/MyReviews";
-import PropertyDetails from "../component/allProperties/PropertyDetails";
 import MakeOffer from "../pages/dashboard/users/MakeOffer";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import Payment from "../pages/dashboard/users/payment/Payment";
-import Forbidden from "../component/Forbidden";
-import AdminRoute from "../routers/AdminRoute";
 import AdminProfile from "../pages/dashboard/admin/AdminProfile";
 import ManageReviews from "../pages/dashboard/admin/ManageReviews";
 import ManageProperties from "../pages/dashboard/admin/ManageProperties";
 import AdvertiseProperty from "../pages/dashboard/admin/AdvertiseProperty";
-import About from "../component/About";
-import Contact from "../component/Contact";
-import AdvertiseSection from "../component/AdvertiseSection";
-import PasswordReset from "../pages/PasswordReset";
-import CompareProperties from "../pages/CompareProperties";
-import AppointmentBooking from "../pages/dashboard/users/AppointmentBooking";
-import SavedSearches from "../pages/SavedSearches";
 
+import Error from "../component/Error";
+import Forbidden from "../component/Forbidden";
+
+const LoadingFallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+    <div className="text-center">
+      <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-gray-500 dark:text-gray-400 text-sm">Loading...</p>
+    </div>
+  </div>
+);
 
 export const router = createBrowserRouter([
-    {
-        path:'/',
-        Component:MainLayout,
-        children:[
-            {
-                index:true,
-                Component: Home,
-            },
-            {
-                path:'/allProperties',
-                Component: AllProperties
-            },
-            {
-                path: '/propertyDetails/:id',
-                element: <PrivateRoute><PropertyDetails /></PrivateRoute>
-            },
-            {
-                path:'/advertiseSection',
-                Component: AdvertiseSection
-            },
-            {
-                path:'/login',
-                Component: Login
-            },
-            {
-                path:'/register',
-                Component: Register
-            },
-            {
-                path:'/forgot-password',
-                Component: PasswordReset
-            },
-            {
-                path: '/about',
-                Component: About
-            },
-            {
-                path: '/contact',
-                Component: Contact
-            },
-            {
-                path:'forbidden',
-                Component: Forbidden
-            },
-            {
-                path:'/compare',
-                element: <PrivateRoute><CompareProperties /></PrivateRoute>
-            },
-            {
-                path:'/saved-searches',
-                element: <PrivateRoute><SavedSearches /></PrivateRoute>
-            },
-            {
-                path:'/appointment/:id',
-                element: <PrivateRoute><AppointmentBooking /></PrivateRoute>
-            }
-        ]
-    },
-    {
-        path: '/dashboard',
-        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-        children: [
-            {
-                index: true,
-                element: <DashboardOverview />
-            },
-            {
-                path: 'overview',
-                element: <DashboardOverview />
-            },
-            {
-                path: 'addProperty',
-                Component: AddProperty
-            },
-            {
-                path: 'myAddedProperties',
-                Component: MyAddedProperties
-            },
-            {
-                path: 'update-property/:id',
-                Component: UpdateProperty
-            },
-            {
-                path: 'agentProfile',
-                Component: AgentProfile
-            },
-            {
-                path: 'mySoldProperty',
-                Component: MySoldProperties
-            },
-            {
-                path: 'requestedProperty',
-                Component: RequestedProperties
-            },
-            {
-                path: 'myProfile',
-                Component: MyProfile
-            },
-            {
-                path: 'wishLists',
-                Component: WishList
-            },
-            {
-                path: 'propertyBought',
-                Component: PropertyBought
-            },
-            {
-                path: 'myReviews',
-                Component: MyReviews
-            },
-            {
-                path: 'makeOffer/:id',
-                element: <PrivateRoute><MakeOffer /></PrivateRoute>
-            },
-            {
-                path: 'payment/:propertyId/:offerId',
-                Component: Payment
-            },
-            {
-                path: 'appointments',
-                element: <PrivateRoute><AppointmentBooking /></PrivateRoute>
-            },
-            {
-                path: 'manageUsers',
-                element: <AdminRoute><ManageUsers /></AdminRoute>
-            },
-            {
-                path: 'adminProfile',
-                element: <AdminRoute><AdminProfile /></AdminRoute>
-            },
-            {
-                path: 'manageProperties',
-                element: <AdminRoute><ManageProperties /></AdminRoute>
-            },
-            {
-                path: 'manageReviews',
-                element: <AdminRoute><ManageReviews /></AdminRoute>
-            },
-            {
-                path: 'advertise-property',
-                element: <AdminRoute><AdvertiseProperty /></AdminRoute>
-            }
-        ]
-    },
-    {
-        path: "*",
-        element: <Error />
-    }
+  {
+    path: "/",
+    Component: MainLayout,
+    children: [
+      { index: true, element: <Suspense fallback={<LoadingFallback />}><Home /></Suspense> },
+      { path: "/allProperties", element: <Suspense fallback={<LoadingFallback />}><AllProperties /></Suspense> },
+      { path: "/propertyDetails/:id", element: <PrivateRoute><Suspense fallback={<LoadingFallback />}><PropertyDetails /></Suspense></PrivateRoute> },
+      { path: "/advertiseSection", element: <Suspense fallback={<LoadingFallback />}><AdvertiseSection /></Suspense> },
+      { path: "/login", element: <Suspense fallback={<LoadingFallback />}><Login /></Suspense> },
+      { path: "/register", element: <Suspense fallback={<LoadingFallback />}><Register /></Suspense> },
+      { path: "/forgot-password", element: <Suspense fallback={<LoadingFallback />}><PasswordReset /></Suspense> },
+      { path: "/about", element: <Suspense fallback={<LoadingFallback />}><About /></Suspense> },
+      { path: "/contact", element: <Suspense fallback={<LoadingFallback />}><Contact /></Suspense> },
+      { path: "/compare", element: <PrivateRoute><Suspense fallback={<LoadingFallback />}><CompareProperties /></Suspense></PrivateRoute> },
+      { path: "/saved-searches", element: <PrivateRoute><Suspense fallback={<LoadingFallback />}><SavedSearches /></Suspense></PrivateRoute> },
+      { path: "/appointment/:id", element: <PrivateRoute><Suspense fallback={<LoadingFallback />}><AppointmentBooking /></Suspense></PrivateRoute> },
+      { path: "/forbidden", element: <Forbidden /> },
+      { path: "*", element: <Error /> },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+    children: [
+      { index: true, element: <DashboardOverview /> },
+      { path: "overview", element: <DashboardOverview /> },
+      { path: "addProperty", element: <AddProperty /> },
+      { path: "myAddedProperties", element: <MyAddedProperties /> },
+      { path: "update-property/:id", element: <UpdateProperty /> },
+      { path: "agentProfile", element: <AgentProfile /> },
+      { path: "mySoldProperty", element: <MySoldProperties /> },
+      { path: "requestedProperty", element: <RequestedProperties /> },
+      { path: "myProfile", element: <MyProfile /> },
+      { path: "wishLists", element: <WishList /> },
+      { path: "propertyBought", element: <PropertyBought /> },
+      { path: "myReviews", element: <MyReviews /> },
+      { path: "makeOffer/:id", element: <PrivateRoute><MakeOffer /></PrivateRoute> },
+      { path: "payment/:propertyId/:offerId", element: <Payment /> },
+      { path: "manageUsers", element: <AdminRoute><ManageUsers /></AdminRoute> },
+      { path: "adminProfile", element: <AdminRoute><AdminProfile /></AdminRoute> },
+      { path: "manageProperties", element: <AdminRoute><ManageProperties /></AdminRoute> },
+      { path: "manageReviews", element: <AdminRoute><ManageReviews /></AdminRoute> },
+      { path: "advertise-property", element: <AdminRoute><AdvertiseProperty /></AdminRoute> },
+    ],
+  },
 ]);
-
-
-
-
-
-// title er text color
-// bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent
-
-
-
-// btn er bg soho text
-// bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white

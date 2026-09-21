@@ -18,6 +18,7 @@ import {
   Linkedin
 } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { seo } from '../utils/seo';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -118,10 +119,16 @@ const Contact = () => {
     { icon: Linkedin, name: "LinkedIn", url: "#" }
   ];
 
+  const meta = seo.contact;
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Helmet>
-      <title>Contact</title>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <link rel="canonical" href="/contact" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

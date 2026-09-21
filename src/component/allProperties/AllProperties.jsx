@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useSearchParams } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
+import { seo } from "../../utils/seo";
 
 const ITEMS_PER_PAGE = 8;
 
@@ -146,6 +148,13 @@ const AllProperties = () => {
       <h1 className="text-4xl md:text-5xl font-bold text-center mt-12 md:mt-20 mb-8 md:mb-16 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
         Find Your Perfect Property
       </h1>
+      <Helmet>
+        <title>{seo.allProperties.title}</title>
+        <meta name="description" content={seo.allProperties.description} />
+        <meta property="og:title" content={seo.allProperties.title} />
+        <meta property="og:description" content={seo.allProperties.description} />
+        <link rel="canonical" href="/allProperties" />
+      </Helmet>
 
       {/* Saved Searches */}
       {savedSearches.length > 0 && (

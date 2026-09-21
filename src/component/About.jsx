@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router';
 import { Helmet } from 'react-helmet';
+import { seo, getOgImageUrl } from '../utils/seo';
 
 const About = () => {
   const features = [
@@ -84,10 +85,16 @@ const About = () => {
     }
   ];
 
+  const meta = seo.about;
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Helmet>
-      <title>About</title>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <link rel="canonical" href="/about" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
