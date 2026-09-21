@@ -18,7 +18,6 @@ const useUserRole = () => {
                     setRole(null);
                 }
             } catch (err) {
-                console.error('Error fetching role:', err);
                 setRole('user');
             } finally {
                 setIsRoleLoading(false);
