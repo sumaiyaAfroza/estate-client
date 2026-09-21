@@ -26,6 +26,4 @@ createRoot(document.getElementById("root")).render(
   </QueryClientProvider>
 );
 
-
-
-// ami urmi
+// JNi na
