@@ -1,54 +1,100 @@
-
-import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import useAxios from "../../../hooks/useAxios";
-import useImageUpload from "../../../hooks/useImageUpload";
 import { toast } from "react-hot-toast";
 
 const AddProperty = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
   const axiosInstance = useAxios();
-  const { uploadImage, uploading } = useImageUpload();
+  const [uploading, setUploading] = useState(false);
+  const [previewUrls, setPreviewUrls] = useState([]);
+
+  // Preview images before upload
+  const handleMainImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPreviewUrls([URL.createObjectURL(file)]);
+    }
+  };
+
+  const handleGalleryChange = (e) => {
+    const files = Array.from(e.target.files);
+    const urls = files.map((f) => URL.createObjectURL(f));
+    setPreviewUrls(urls);
+  };
+
+  const uploadToImgBB = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
+    const uploadUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_UPLOAD_KEY}`;
+    try {
+      const res = await fetch(uploadUrl, { method: "POST", body: formData });
+      const data = await res.json();
+      return data.success ? data.data.url : null;
+    } catch (err) {
+      toast.error("Image upload failed!");
+      return null;
+    }
+  };
 
   const onSubmit = async (data) => {
-    const imageFile = data.image[0];
-    if (!imageFile) {
-      toast.error("Please upload an image.");
+    const mainImage = data.mainImage?.[0];
+    if (!mainImage) {
+      toast.error("Please upload at least one main image.");
       return;
     }
 
-    const imageUrl = await uploadImage(imageFile);
-    if (!imageUrl) return;
-
-    const propertyData = {
-      title: data.title,
-      location: data.location,
-      imageUrl: imageUrl,
-      agentName: user.displayName,
-      agentEmail: user.email,
-      agentImage: user.photoURL,
-      price: {
-        min: Number(data.price.min),
-        max: Number(data.price.max),
-      },
-      status: "pending",
-      verified: false,
-      isAdvertised: false,
-      createdAt: new Date(),
-    };
-
+    setUploading(true);
     try {
+      // Upload main image first
+      const mainImageUrl = await uploadToImgBB(mainImage);
+      if (!mainImageUrl) return;
+
+      // Upload gallery images
+      const galleryFiles = data.galleryImages || [];
+      const uploadedGalleryUrls = [];
+      for (const file of galleryFiles) {
+        const url = await uploadToImgBB(file);
+        if (url) uploadedGalleryUrls.push(url);
+      }
+
+      const propertyData = {
+        title: data.title,
+        location: data.location,
+        description: data.description || "",
+        type: data.type || "house",
+        bedrooms: Number(data.bedrooms) || 0,
+        bathrooms: Number(data.bathrooms) || 0,
+        area: Number(data.area) || 0,
+        mainImage: mainImageUrl,
+        imageUrls: [mainImageUrl, ...uploadedGalleryUrls],
+        agentName: user.displayName,
+        agentEmail: user.email,
+        agentImage: user.photoURL,
+        price: {
+          min: Number(data.price.min),
+          max: Number(data.price.max),
+        },
+        status: "pending",
+        verified: false,
+        isAdvertised: false,
+        createdAt: new Date(),
+      };
+
       const result = await axiosInstance.post("/addProperty", propertyData);
       if (result.data.success) {
         toast.success("Property added successfully!");
         reset();
+        setPreviewUrls([]);
       } else {
         toast.error("Failed to add property!");
       }
     } catch (error) {
       toast.error(error.response?.data?.error || "Server error while adding property.");
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -111,15 +157,91 @@ const AddProperty = () => {
             />
           </div>
 
-          {/* Image */}
+          {/* Type */}
           <div>
-            <label className="block mb-1 font-medium">Property Image</label>
+            <label className="block mb-1 font-medium">Property Type</label>
+            <select {...register("type")} className="w-full select select-bordered">
+              <option value="house">House</option>
+              <option value="apartment">Apartment</option>
+              <option value="land">Land</option>
+              <option value="commercial">Commercial</option>
+              <option value="villa">Villa</option>
+            </select>
+          </div>
+
+          {/* Bedrooms & Bathrooms */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block mb-1 font-medium">Bedrooms</label>
+              <input
+                type="number"
+                {...register("bedrooms")}
+                className="w-full input input-bordered"
+                placeholder="0"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 font-medium">Bathrooms</label>
+              <input
+                type="number"
+                {...register("bathrooms")}
+                className="w-full input input-bordered"
+                placeholder="0"
+              />
+            </div>
+          </div>
+
+          {/* Area */}
+          <div>
+            <label className="block mb-1 font-medium">Area (sq ft)</label>
+            <input
+              type="number"
+              {...register("area")}
+              className="w-full input input-bordered"
+              placeholder="Enter area in sq ft"
+            />
+          </div>
+
+          {/* Description */}
+          <div>
+            <label className="block mb-1 font-medium">Description</label>
+            <textarea
+              {...register("description")}
+              className="w-full textarea textarea-bordered h-24"
+              placeholder="Enter property description..."
+            />
+          </div>
+
+          {/* Main Image */}
+          <div>
+            <label className="block mb-1 font-medium">Main Image *</label>
             <input
               type="file"
-              {...register("image", { required: true })}
-              className="file-input file-input-bordered w-full"
               accept="image/*"
+              {...register("mainImage", { required: "Main image is required" })}
+              className="file-input file-input-bordered w-full"
+              onChange={handleMainImageChange}
             />
+          </div>
+
+          {/* Gallery Images */}
+          <div>
+            <label className="block mb-1 font-medium">Gallery Images (Optional)</label>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              {...register("galleryImages")}
+              className="file-input file-input-bordered w-full"
+              onChange={handleGalleryChange}
+            />
+            {previewUrls.length > 0 && (
+              <div className="flex gap-2 mt-2 flex-wrap">
+                {previewUrls.map((url, i) => (
+                  <img key={i} src={url} alt={`preview ${i}`} className="w-16 h-16 object-cover rounded" />
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Agent Info */}
@@ -148,22 +270,14 @@ const AddProperty = () => {
             <div className="flex gap-2 items-center">
               <input
                 type="number"
-                {...register("price.min", {
-                  required: true,
-                  min: 0,
-                  valueAsNumber: true,
-                })}
+                {...register("price.min", { required: true, min: 0, valueAsNumber: true })}
                 className="w-full input input-bordered"
                 placeholder="Min Price"
               />
               <span className="text-gray-500">to</span>
               <input
                 type="number"
-                {...register("price.max", {
-                  required: true,
-                  min: 0,
-                  valueAsNumber: true,
-                })}
+                {...register("price.max", { required: true, min: 0, valueAsNumber: true })}
                 className="w-full input input-bordered"
                 placeholder="Max Price"
               />
@@ -177,7 +291,13 @@ const AddProperty = () => {
               className="btn btn-primary w-full"
               disabled={uploading}
             >
-              {uploading ? "Uploading..." : "Add Property"}
+              {uploading ? (
+                <>
+                  <span className="loading loading-spinner"></span> Uploading...
+                </>
+              ) : (
+                "Add Property"
+              )}
             </button>
           </div>
         </form>
