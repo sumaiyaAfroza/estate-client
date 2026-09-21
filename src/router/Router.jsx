@@ -31,6 +31,10 @@ import AdvertiseProperty from "../pages/dashboard/admin/AdvertiseProperty";
 import About from "../component/About";
 import Contact from "../component/Contact";
 import AdvertiseSection from "../component/AdvertiseSection";
+import PasswordReset from "../pages/PasswordReset";
+import CompareProperties from "../pages/CompareProperties";
+import AppointmentBooking from "../pages/dashboard/users/AppointmentBooking";
+import SavedSearches from "../pages/SavedSearches";
 
 
 export const router = createBrowserRouter([
@@ -41,19 +45,18 @@ export const router = createBrowserRouter([
             {
                 index:true,
                 Component: Home,
-               
             },
             {
                 path:'/allProperties',
                 Component: AllProperties
             },
             {
-               path: '/propertyDetails/:id',
-               element: <PrivateRoute> <PropertyDetails></PropertyDetails></PrivateRoute>
+                path: '/propertyDetails/:id',
+                element: <PrivateRoute><PropertyDetails /></PrivateRoute>
             },
             {
-               path:'/advertiseSection',
-               Component: AdvertiseSection
+                path:'/advertiseSection',
+                Component: AdvertiseSection
             },
             {
                 path:'/login',
@@ -64,29 +67,39 @@ export const router = createBrowserRouter([
                 Component: Register
             },
             {
-                path:'makeOffer/:id',
-               element: <PrivateRoute><MakeOffer></MakeOffer></PrivateRoute>
+                path:'/forgot-password',
+                Component: PasswordReset
             },
             {
                 path: '/about',
                 Component: About
             },
             {
-               path: '/contact',
-               Component: Contact
+                path: '/contact',
+                Component: Contact
             },
             {
                 path:'forbidden',
                 Component: Forbidden
+            },
+            {
+                path:'/compare',
+                element: <PrivateRoute><CompareProperties /></PrivateRoute>
+            },
+            {
+                path:'/saved-searches',
+                element: <PrivateRoute><SavedSearches /></PrivateRoute>
+            },
+            {
+                path:'/appointment/:id',
+                element: <PrivateRoute><AppointmentBooking /></PrivateRoute>
             }
-           
-        ] 
+        ]
     },
-    { 
+    {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
-            // Dashboard overview as default
             {
                 index: true,
                 element: <DashboardOverview />
@@ -96,17 +109,17 @@ export const router = createBrowserRouter([
                 element: <DashboardOverview />
             },
             {
-                path:'addProperty',
+                path: 'addProperty',
                 Component: AddProperty
             },
             {
-             path: 'myAddedProperties',
-             Component: MyAddedProperties
+                path: 'myAddedProperties',
+                Component: MyAddedProperties
             },
             {
-                path:'update-property/:id',
+                path: 'update-property/:id',
                 Component: UpdateProperty
-            },  
+            },
             {
                 path: 'agentProfile',
                 Component: AgentProfile
@@ -116,14 +129,12 @@ export const router = createBrowserRouter([
                 Component: MySoldProperties
             },
             {
-              path: 'requestedProperty',
-              Component: RequestedProperties
+                path: 'requestedProperty',
+                Component: RequestedProperties
             },
-
-            // user
             {
                 path: 'myProfile',
-                Component:MyProfile
+                Component: MyProfile
             },
             {
                 path: 'wishLists',
@@ -135,42 +146,47 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'myReviews',
-                Component:MyReviews
+                Component: MyReviews
+            },
+            {
+                path: 'makeOffer/:id',
+                element: <PrivateRoute><MakeOffer /></PrivateRoute>
             },
             {
                 path: 'payment/:propertyId/:offerId',
                 Component: Payment
             },
-            
-
-            // admin
+            {
+                path: 'appointments',
+                element: <PrivateRoute><AppointmentBooking /></PrivateRoute>
+            },
             {
                 path: 'manageUsers',
-                element: <AdminRoute> <ManageUsers></ManageUsers>  </AdminRoute>
+                element: <AdminRoute><ManageUsers /></AdminRoute>
             },
             {
-                path:'adminProfile',
-                element: <AdminRoute> <AdminProfile></AdminProfile> </AdminRoute> 
+                path: 'adminProfile',
+                element: <AdminRoute><AdminProfile /></AdminRoute>
             },
             {
-                path: 'ManageProperties',
-                element: <AdminRoute> <ManageProperties></ManageProperties> </AdminRoute>
+                path: 'manageProperties',
+                element: <AdminRoute><ManageProperties /></AdminRoute>
             },
             {
                 path: 'manageReviews',
-                element: <AdminRoute> <ManageReviews></ManageReviews> </AdminRoute>
+                element: <AdminRoute><ManageReviews /></AdminRoute>
             },
             {
-                path:'advertise-property',
-                element: <AdminRoute>  <AdvertiseProperty></AdvertiseProperty> </AdminRoute>
+                path: 'advertise-property',
+                element: <AdminRoute><AdvertiseProperty /></AdminRoute>
             }
         ]
     },
     {
         path: "*",
-        element: <Error></Error>
-    }  
-])
+        element: <Error />
+    }
+]);
 
 
 
