@@ -15,8 +15,6 @@ const PropertyBought = () => {
     },
     enabled: !!user?.email,
   });
-  
-  console.log(offers);
 
   if (isLoading) return <p className="text-center">Loading...</p>;
 
@@ -30,8 +28,7 @@ const PropertyBought = () => {
             className="border rounded-2xl shadow-md p-4 space-y-3"
           >
             <img
-              src={offer.PropertyImage
-}
+              src={offer.PropertyImage || offer.imageUrls?.[0] || offer.imageUrl}
               alt={offer.propertyTitle}
               className="h-48 w-full object-cover rounded-xl"
             />
@@ -41,7 +38,7 @@ const PropertyBought = () => {
               <span className="font-medium">Agent:</span> {offer.agentName}
             </p>
             <p>
-              <span className="font-medium">Offered Amount:</span> ${offer.offerAmount}
+              <span className="font-medium">Offered Amount:</span> ৳{offer.offerAmount}
             </p>
             <p>
               <span className="font-medium">Status:</span>{" "}

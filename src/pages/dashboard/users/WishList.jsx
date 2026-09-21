@@ -19,7 +19,6 @@ const WishList = () => {
       return res.data;
     },
   });
-  console.log(wishlist);
 
   const handleRemove = async (id) => {
     const res = await axiosSecure.delete(`/wishlist/${id}`);

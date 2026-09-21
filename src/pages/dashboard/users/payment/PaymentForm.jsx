@@ -66,8 +66,6 @@ const PaymentForm = () => {
         return;
       }
 
-      console.log(amountInCents, propertyId);
-
       const { data } = await axios.post('/create-payment-intent', { 
         amountInCents,
         propertyId,
@@ -89,7 +87,6 @@ const PaymentForm = () => {
       if (confirmResult.paymentIntent.status === 'succeeded') {
         const transactionId = confirmResult.paymentIntent.id;
         
-        // Update both property and offer status
         await axios.put(`/property/${propertyId}/pay`, { 
           transactionId, 
           offerId 
@@ -102,7 +99,6 @@ const PaymentForm = () => {
           confirmButtonText: 'Go to Dashboard'
         });
         
-        // Navigate to property bought page to see updated status
         navigate('/dashboard/propertyBought');
       }
     } catch (err) {
@@ -114,7 +110,7 @@ const PaymentForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow space-y-4">
-      <h2 className="text-xl font-bold">Payment for Property: ${amount.toFixed(2)}</h2>
+      <h2 className="text-xl font-bold">Payment for Property: ৳{amount.toFixed(2)}</h2>
       <CardElement
         className="p-3 border rounded"
         options={{
@@ -134,7 +130,7 @@ const PaymentForm = () => {
         className="btn btn-primary w-full"
         disabled={!stripe || processing || amount <= 0}
       >
-        {processing ? 'Processing...' : `Pay $${amount.toFixed(2)}`}
+        {processing ? 'Processing...' : `Pay ৳${amount.toFixed(2)}`}
       </button>
     </form>
   );

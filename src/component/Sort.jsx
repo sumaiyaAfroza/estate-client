@@ -12,7 +12,6 @@ const Sort = () => {
           const response = await axios.get(`${import.meta.env.VITE_SERVER}/marathons?sort=-createdAt&limit=6`);
           setItem(response?.data.slice(0,6))
         } catch (error) {
-          console.log(error)
         }
       }
       fetchSortItem()

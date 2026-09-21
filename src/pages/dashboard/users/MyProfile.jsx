@@ -31,13 +31,10 @@ const MyProfile = () => {
       axiosSecure
         .get(`/profile?email=${user.email}`)
         .then((res) => {
-          
-          console.log(res.data);
-
           setProfile(res.data);
           setEditData(res.data);
         })
-        .catch((err) => console.error(err));
+        .catch(() => {});
     }
   }, [user, axiosSecure]);
 
@@ -65,7 +62,6 @@ const MyProfile = () => {
       setProfile(editData);
       setIsEditing(false);
     } catch (error) {
-      console.error("Error updating profile:", error);
     }
     setIsLoading(false);
   };

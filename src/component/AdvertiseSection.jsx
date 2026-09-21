@@ -14,8 +14,6 @@ const AdvertiseSection = () => {
     },
   });
 
-  console.log(advertisedProperties);
-
   if (advertisedProperties.length === 0) return null;
 
   return (

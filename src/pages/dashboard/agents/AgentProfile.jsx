@@ -34,7 +34,7 @@ const MyProfile = () => {
           setProfile(res.data);
           setEditData(res.data);
         })
-        .catch((err) => console.error(err));
+        .catch(() => {});
     }
   }, [user, axiosSecure]);
 
