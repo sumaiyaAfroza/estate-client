@@ -37,6 +37,7 @@ const DashboardLayout = () => {
         { path: '/dashboard/wishLists', label: 'Wish List', icon: <FaHeart /> },
         { path: '/dashboard/propertyBought', label: 'Property Bought', icon: <FaMoneyCheckAlt /> },
         { path: '/dashboard/myReviews', label: 'My Reviews', icon: <FaBoxOpen /> },
+        { path: '/saved-searches', label: 'Saved Searches', icon: <FaClipboardList /> },
       ];
     }
 
@@ -108,6 +109,23 @@ const DashboardLayout = () => {
               </NavLink>
             ))}
           </nav>
+          {/* Quick Actions for mobile */}
+          <div className="mt-6 pt-4 border-t dark:border-gray-700">
+            <NavLink
+              to="/compare"
+              onClick={() => setSidebarOpen(false)}
+              className="flex items-center gap-3 py-2 px-3 text-sm text-gray-600 dark:text-gray-400 hover:text-emerald-600"
+            >
+              🔄 Compare Properties
+            </NavLink>
+            <NavLink
+              to="/saved-searches"
+              onClick={() => setSidebarOpen(false)}
+              className="flex items-center gap-3 py-2 px-3 text-sm text-gray-600 dark:text-gray-400 hover:text-emerald-600"
+            >
+              💾 Saved Searches
+            </NavLink>
+          </div>
         </aside>
       </div>
 
