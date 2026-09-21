@@ -249,8 +249,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-blue-500/10 hover:from-emerald-500/20 hover:to-blue-500/20 transition线索
-              transition-all duration-300 hover:scale-110"
+              className="p-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-blue-500/10 hover:from-emerald-500/20 hover:to-blue-500/20 transition-all duration-300 hover:scale-110"
             >
               {theme === "light" ? (
                 <Moon size={20} className="text-emerald-600 dark:text-emerald-400" />
