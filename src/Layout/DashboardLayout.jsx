@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet, Link } from 'react-router-dom';
-import { FaHome, FaBoxOpen, FaMoneyCheckAlt, FaUserEdit, FaSearchLocation, FaUserCheck, FaUserClock, FaBars, FaHeart, FaUserShield, FaClipboardList } from 'react-icons/fa';
+import { FaHome, FaBoxOpen, FaMoneyCheckAlt, FaUserEdit, FaSearchLocation, FaUserCheck, FaUserClock, FaBars, FaHeart, FaUserShield, FaClipboardList, FaChartBar } from 'react-icons/fa';
 import useUserRole from '../hooks/useUserRole';
 
 const DashboardLayout = () => {
@@ -44,6 +44,7 @@ const DashboardLayout = () => {
     if (role === 'admin') {
       return [
         { path: '/dashboard/adminProfile', label: 'Admin Profile', icon: <FaUserShield /> },
+        { path: '/dashboard/admin-analytics', label: 'Analytics', icon: <FaChartBar /> },
         { path: '/dashboard/manageProperties', label: 'Manage Properties', icon: <FaBoxOpen /> },
         { path: '/dashboard/manageUsers', label: 'Manage Users', icon: <FaUserCheck /> },
         { path: '/dashboard/manageReviews', label: 'Manage Reviews', icon: <FaBoxOpen /> },

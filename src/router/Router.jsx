@@ -38,6 +38,7 @@ import AdminProfile from "../pages/dashboard/admin/AdminProfile";
 import ManageReviews from "../pages/dashboard/admin/ManageReviews";
 import ManageProperties from "../pages/dashboard/admin/ManageProperties";
 import AdvertiseProperty from "../pages/dashboard/admin/AdvertiseProperty";
+import AdminAnalytics from "../pages/dashboard/admin/AdminAnalytics";
 
 import Error from "../component/Error";
 import Forbidden from "../component/Forbidden";
@@ -93,6 +94,7 @@ export const router = createBrowserRouter([
       { path: "manageUsers", element: <AdminRoute><ManageUsers /></AdminRoute> },
       { path: "adminProfile", element: <AdminRoute><AdminProfile /></AdminRoute> },
       { path: "manageProperties", element: <AdminRoute><ManageProperties /></AdminRoute> },
+      { path: "admin-analytics", element: <AdminRoute><AdminAnalytics /></AdminRoute> },
       { path: "manageReviews", element: <AdminRoute><ManageReviews /></AdminRoute> },
       { path: "advertise-property", element: <AdminRoute><AdvertiseProperty /></AdminRoute> },
     ],
