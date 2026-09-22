@@ -28,6 +28,7 @@ const DashboardLayout = () => {
         { path: '/dashboard/myAddedProperties', label: 'My Added Properties', icon: <FaClipboardList /> },
         { path: '/dashboard/mySoldProperty', label: 'My Sold Properties', icon: <FaMoneyCheckAlt /> },
         { path: '/dashboard/requestedProperty', label: 'Requested Properties', icon: <FaSearchLocation /> },
+        { path: '/dashboard/agent-performance', label: 'My Performance', icon: <FaChartBar /> },
       ];
     }
 

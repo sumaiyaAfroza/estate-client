@@ -27,6 +27,7 @@ import UpdateProperty from "../pages/dashboard/agents/UpdateProperty";
 import AgentProfile from "../pages/dashboard/agents/AgentProfile";
 import MySoldProperties from "../pages/dashboard/agents/MySoldProperties";
 import RequestedProperties from "../pages/dashboard/agents/RequestedProperties";
+import AgentPerformance from "../pages/dashboard/agents/AgentPerformance";
 import MyProfile from "../pages/dashboard/users/MyProfile";
 import WishList from "../pages/dashboard/users/WishList";
 import PropertyBought from "../pages/dashboard/users/PropertyBought";
@@ -85,6 +86,7 @@ export const router = createBrowserRouter([
       { path: "agentProfile", element: <AgentProfile /> },
       { path: "mySoldProperty", element: <MySoldProperties /> },
       { path: "requestedProperty", element: <RequestedProperties /> },
+      { path: "agent-performance", element: <AgentPerformance /> },
       { path: "myProfile", element: <MyProfile /> },
       { path: "wishLists", element: <WishList /> },
       { path: "propertyBought", element: <PropertyBought /> },

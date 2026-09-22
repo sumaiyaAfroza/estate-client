@@ -59,7 +59,7 @@ const MyProfile = () => {
   //     setProfile(editData);
   //     setIsEditing(false);
   //   } catch (error) {
-  //     console.error("Error updating profile:", error);
+  
   //   }
   //   setIsLoading(false);
   // };
