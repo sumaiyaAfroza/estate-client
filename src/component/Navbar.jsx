@@ -148,7 +148,7 @@ const Navbar = () => {
   return (
     <nav
    
-      className={`backdrop-blur-xl bg-white  sticky top-0 z-50 transition-all duration-500 ${
+      className={`backdrop-blur-xl bg-white dark:bg-gray-800 sticky top-0 z-50 transition-all duration-500 ${
         showNavbar ? "translate-y-0 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50" : "-translate-y-full"
       }`}
     >
