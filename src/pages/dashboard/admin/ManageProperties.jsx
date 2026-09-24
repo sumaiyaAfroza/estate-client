@@ -92,7 +92,11 @@ const ManageProperties = () => {
                   </p>
                 </td>
                 <td className="px-4 sm:px-6 py-4 text-gray-700 whitespace-nowrap">
-                  ৳{property.price.min.toLocaleString()} - ৳{property.price.max.toLocaleString()}
+                  {(() => {
+                    const p = property.price;
+                    if (!p || typeof p !== "object" || typeof p.min !== "number") return "—";
+                    return `৳${p.min.toLocaleString()} – ৳${p.max.toLocaleString()}`;
+                  })()}
                 </td>
                 <td className="px-4 sm:px-6 py-4">
                   <span

@@ -61,7 +61,7 @@ const AdvertiseProperty = () => {
                   />
                 </td>
                 <td className="px-6 py-4 font-medium">{property.title}</td>
-                <td className="px-6 py-4">{property.price.min} - {property.price.max} ৳</td>
+                <td className="px-6 py-4">{(() => { const p = property.price; if (!p || typeof p !== "object" || typeof p.min !== "number") return "—"; return `${p.min.toLocaleString()} – ${p.max.toLocaleString()} ৳`; })()}</td>
                 <td className="px-6 py-4">{property.agentName}</td>
                 <td className="px-6 py-4">
                   {property.isAdvertised ? (

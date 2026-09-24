@@ -88,7 +88,7 @@ const MyAddedProperties = () => {
                   <MapPin size={16} color="#3B82F6" /> {property.location}
                 </p>
                 <p className="text-gray-700 flex items-center gap-1">
-                  <DollarSign size={16} color="#10B981" /> {property.price.min} - {property.price.max} ৳
+                  <DollarSign size={16} color="#10B981" /> {(() => { const p = property.price; if (!p || typeof p !== "object" || typeof p.min !== "number") return "—"; return `${p.min.toLocaleString()} – ${p.max.toLocaleString()} ৳`; })()}
                 </p>
                 <p className="text-sm text-gray-500 flex items-center gap-1">
                   <User2 size={15} color="#F59E0B" /> {user.displayName} ({user.email})

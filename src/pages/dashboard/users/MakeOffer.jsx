@@ -34,9 +34,12 @@ const MakeOffer = () => {
 
   const onSubmit = async (data) => {
     const offerAmount = parseFloat(data.offerAmount);
-    const min = property.price.min;
-    const max = property.price.max;
-
+    const min = property.price?.min;
+    const max = property.price?.max;
+    if (typeof min !== 'number' || typeof max !== 'number') {
+      toast.error('Property price is not available.');
+      return;
+    }
     if (offerAmount < min || offerAmount > max) {
       toast.error(`Offer must be between ${min} - ${max} ৳`);
       return;
@@ -109,7 +112,7 @@ const MakeOffer = () => {
           />
         </div>
         <div>
-          <label>Offer Amount (Between {property.price.min} - {property.price.max})</label>
+          <label>Offer Amount (Between {typeof property.price?.min === 'number' ? property.price.min + ' – ' + property.price.max : '—'})</label>
           <input
             type="number"
             {...register("offerAmount", { required: "Offer amount is required" })}

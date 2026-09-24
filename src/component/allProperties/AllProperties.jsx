@@ -55,11 +55,11 @@ const AllProperties = () => {
     const matchesBathrooms = !bathrooms || (property.bathrooms >= parseInt(bathrooms));
     const minPrice = priceMin ? parseInt(priceMin) : 0;
     const maxPrice = priceMax ? parseInt(priceMax) : Infinity;
-    const matchesPrice = property.price.min >= minPrice && property.price.min <= maxPrice;
+    const matchesPrice = property.price && typeof property.price.min === "number" && property.price.min >= minPrice && property.price.min <= maxPrice;
     return matchesSearch && matchesType && matchesBedrooms && matchesBathrooms && matchesPrice;
   }).sort((a, b) => {
-    if (sortOrder === "asc") return a.price.min - b.price.min;
-    if (sortOrder === "desc") return b.price.max - a.price.max;
+    if (sortOrder === "asc") return (a.price?.min || 0) - (b.price?.min || 0);
+    if (sortOrder === "desc") return (b.price?.max || 0) - (a.price?.max || 0);
     return 0;
   });
 
@@ -132,7 +132,7 @@ const AllProperties = () => {
 
   const shareProperty = (property, platform) => {
     const url = encodeURIComponent(window.location.origin + `/propertyDetails/${property._id}`);
-    const text = encodeURIComponent(`Check out ${property.title} - ৳${property.price.min.toLocaleString()} in ${property.location}`);
+    const text = encodeURIComponent(`Check out ${property.title} - ৳${(typeof property.price?.min === 'number' ? property.price.min.toLocaleString() : '—')} in ${property.location}`);
     const links = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
